@@ -12,4 +12,8 @@ return [
         'controller' => 'news',
         'action' => 'show',
         ],
+     ''=>[
+        'controller' => 'main',
+        'action' => 'index',
+        ],
 ];

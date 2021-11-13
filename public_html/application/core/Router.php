@@ -35,8 +35,15 @@ class Router
 
     public function run(){
        if ($this->match()){
-           echo 'Маршрут найден';
-           exit();
+           $controller = 'application\controllers\\'.ucfirst($this->params['controller']).'Controller.php'; //подключение соответствующего контроллера
+           if (class_exists($controller)){
+               //
+           }else{
+               echo 'Класс :'.$controller.' не существует';
+           }//проверка существовыния класса
+           //echo $controller;
+       }else{
+           echo 'Маршрут не найден';
        }
     }
 }
