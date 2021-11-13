@@ -10,11 +10,13 @@ class MainController extends Controller {
     public function indexAction(){
         $db = new Db;
 
-        $form = 2;
+        /*$params = [ //параметры для sql запроса
+            'id'=>1,
+        ];
+        //$data =  $db->column('SELECT name FROM users WHERE id =2'); //обычный небезопасный для sql инъекций
+        $data =  $db->column('SELECT name FROM users WHERE id = :id', $params); // подготовленный sql запрос
 
-        $data =  $db->column('SELECT name FROM users WHERE id ='.$form);
-
-        debug($data);
+        debug($data);*/
         $this->view->render('Главная страница');
 
     }
