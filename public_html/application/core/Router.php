@@ -35,13 +35,18 @@ class Router
 
     public function run(){
        if ($this->match()){
-           $controller = 'application\controllers\\'.ucfirst($this->params['controller']).'Controller.php'; //подключение соответствующего контроллера
-           if (class_exists($controller)){
-               //
+           $path = 'application\controllers\\'.ucfirst($this->params['controller']).'Controller'; //подключение соответствующего контроллера
+           if (class_exists($path)){//проверка существовыния класса
+               $action = $this->params['action'].'Action';
+               if (method_exists($path,$action)) {//проверка существования метода
+                   $controller = new $path($this->params);
+                   $controller->$action();
+               }else{
+                   echo 'Экшен :'.$action .' не существует';
+               }
            }else{
-               echo 'Класс :'.$controller.' не существует';
-           }//проверка существовыния класса
-           //echo $controller;
+               echo 'Контроллер :'.$path.' не существует';
+           }
        }else{
            echo 'Маршрут не найден';
        }

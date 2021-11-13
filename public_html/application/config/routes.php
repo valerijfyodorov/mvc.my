@@ -1,8 +1,8 @@
 <?php
 return [
-    'read/text'=>[
-        'controller' => 'read',
-        'action' => 'text',
+    'account/register'=>[
+        'controller' => 'account',
+        'action' => 'register',
     ],
     'account/login'=>[
         'controller' => 'account',
