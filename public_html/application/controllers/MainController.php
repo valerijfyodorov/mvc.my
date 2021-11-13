@@ -10,4 +10,5 @@ class MainController extends Controller {
         echo 'Главная страница';
 
     }
+
 }
